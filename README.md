@@ -1,0 +1,2 @@
+# StocKGop
+inventory application
