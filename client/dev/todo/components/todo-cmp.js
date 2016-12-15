@@ -1,4 +1,9 @@
 "use strict";
+var __extends = (this && this.__extends) || function (d, b) {
+    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+    function __() { this.constructor = d; }
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+};
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -10,48 +15,19 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require("@angular/core");
 var todo_service_1 = require("../services/todo-service");
-var TodoCmp = (function () {
-    function TodoCmp(_todoService) {
-        this._todoService = _todoService;
-        this.title = "ng2do";
-        this.todos = [];
-        this.todoForm = {
+var Abstract_cpm_1 = require("./Abstract-cpm");
+var TodoCmp = (function (_super) {
+    __extends(TodoCmp, _super);
+    function TodoCmp(_TodoService) {
+        var _this = _super.call(this, _TodoService) || this;
+        _this._TodoService = _TodoService;
+        _this.todoForm = {
             "todoMessage": ""
         };
+        return _this;
     }
-    TodoCmp.prototype.ngOnInit = function () {
-        this._getAll();
-    };
-    TodoCmp.prototype._getAll = function () {
-        var _this = this;
-        this._todoService
-            .getAll()
-            .subscribe(function (todos) {
-            _this.todos = todos;
-        });
-    };
-    TodoCmp.prototype.add = function (message) {
-        var _this = this;
-        this._todoService
-            .add(message)
-            .subscribe(function (m) {
-            _this.todos.push(m);
-            _this.todoForm.todoMessage = "";
-        });
-    };
-    TodoCmp.prototype.remove = function (id) {
-        var _this = this;
-        this._todoService
-            .remove(id)
-            .subscribe(function () {
-            _this.todos.forEach(function (t, i) {
-                if (t._id === id)
-                    return _this.todos.splice(i, 1);
-            });
-        });
-    };
     return TodoCmp;
-}());
+}(Abstract_cpm_1.AbstractComponent));
 TodoCmp = __decorate([
     core_1.Component({
         selector: 'todo-cmp',

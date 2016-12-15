@@ -8,7 +8,7 @@
            name="todoMessage"
            [(ngModel)]="todoForm.todoMessage"
            [class.todo-error]="!todoForm.todoMessage.length"
-           placeholder="What do you have todo?"
+           placeholder="nom de l'élément"
            autofocus />
 
     <button type="submit"
@@ -19,6 +19,14 @@
     <div *ngFor="let todo of todos;"
          class="todo-item"
          (click)="remove(todo._id);">
+      <p>{{todo.todoMessage}}</p>
+    </div>
+  </div>
+
+  <div class="todo-list">
+    <div *ngFor="let todo of todos;"
+         class="element-item">
+         <!--(click)="detail(todo._id);">-->
       <p>{{todo.todoMessage}}</p>
     </div>
   </div>

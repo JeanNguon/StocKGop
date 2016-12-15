@@ -14,6 +14,8 @@ var forms_1 = require("@angular/forms");
 var platform_browser_1 = require("@angular/platform-browser");
 var todo_cmp_1 = require("./todo/components/todo-cmp");
 var todo_service_1 = require("./todo/services/todo-service");
+var menu_cmp_1 = require("./todo/components/menu-cmp");
+var menu_service_1 = require("./todo/services/menu-service");
 var AppModule = (function () {
     function AppModule() {
     }
@@ -28,12 +30,15 @@ AppModule = __decorate([
         ],
         declarations: [
             todo_cmp_1.TodoCmp,
+            menu_cmp_1.MenuCmp
         ],
         providers: [
             todo_service_1.TodoService,
+            menu_service_1.MenuService
         ],
         bootstrap: [
             todo_cmp_1.TodoCmp,
+            menu_cmp_1.MenuCmp
         ],
     }),
     __metadata("design:paramtypes", [])

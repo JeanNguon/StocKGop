@@ -13,27 +13,30 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var __param = (this && this.__param) || function (paramIndex, decorator) {
-    return function (target, key) { decorator(target, key, paramIndex); }
-};
+/**
+ * Created by imiedev on 15/12/16.
+ */
 var core_1 = require("@angular/core");
-var http_1 = require("@angular/http");
-require("rxjs/add/operator/map");
-var abstractService_1 = require("./abstractService");
-var TodoService = TodoService_1 = (function (_super) {
-    __extends(TodoService, _super);
-    function TodoService(_http) {
-        var _this = _super.call(this, _http, TodoService_1.route) || this;
-        _this._http = _http;
+var Abstract_cpm_1 = require("./Abstract-cpm");
+var menu_service_1 = require("../services/menu-service");
+var MenuCmp = (function (_super) {
+    __extends(MenuCmp, _super);
+    function MenuCmp(menuService) {
+        var _this = _super.call(this, menuService) || this;
+        _this.menuService = menuService;
+        _this.todoForm = {
+            "todoMessage": ""
+        };
         return _this;
     }
-    return TodoService;
-}(abstractService_1.AbstractService));
-TodoService.route = '/api/todos/:id';
-TodoService = TodoService_1 = __decorate([
-    core_1.Injectable(),
-    __param(0, core_1.Inject(http_1.Http)),
-    __metadata("design:paramtypes", [http_1.Http])
-], TodoService);
-exports.TodoService = TodoService;
-var TodoService_1;
+    return MenuCmp;
+}(Abstract_cpm_1.AbstractComponent));
+MenuCmp = __decorate([
+    core_1.Component({
+        selector: 'menu-cmp',
+        templateUrl: 'todo/templates/menu.html',
+        styleUrls: ['todo/styles/menu.css']
+    }),
+    __metadata("design:paramtypes", [menu_service_1.MenuService])
+], MenuCmp);
+exports.MenuCmp = MenuCmp;

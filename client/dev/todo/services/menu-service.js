@@ -20,20 +20,20 @@ var core_1 = require("@angular/core");
 var http_1 = require("@angular/http");
 require("rxjs/add/operator/map");
 var abstractService_1 = require("./abstractService");
-var TodoService = TodoService_1 = (function (_super) {
-    __extends(TodoService, _super);
-    function TodoService(_http) {
-        var _this = _super.call(this, _http, TodoService_1.route) || this;
+var MenuService = MenuService_1 = (function (_super) {
+    __extends(MenuService, _super);
+    function MenuService(_http) {
+        var _this = _super.call(this, _http, MenuService_1.route) || this;
         _this._http = _http;
         return _this;
     }
-    return TodoService;
+    return MenuService;
 }(abstractService_1.AbstractService));
-TodoService.route = '/api/todos/:id';
-TodoService = TodoService_1 = __decorate([
+MenuService.route = '/api/menu/:id';
+MenuService = MenuService_1 = __decorate([
     core_1.Injectable(),
     __param(0, core_1.Inject(http_1.Http)),
     __metadata("design:paramtypes", [http_1.Http])
-], TodoService);
-exports.TodoService = TodoService;
-var TodoService_1;
+], MenuService);
+exports.MenuService = MenuService;
+var MenuService_1;

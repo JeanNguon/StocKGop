@@ -73,3 +73,7 @@
 .todo-container .todo-item:hover {
   background-color: #f1f2f3;
 }
+
+.element-item {
+  background: blue;
+}
