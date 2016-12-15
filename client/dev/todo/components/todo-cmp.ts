@@ -14,6 +14,7 @@ import {
 import {
   TodoService
 } from '../services/todo-service';
+import {AbstractComponent} from "./Abstract-cpm";
 
 type Todo = {
   todoMessage: string;
@@ -25,46 +26,16 @@ type Todo = {
   templateUrl: 'todo/templates/todo.html',
   styleUrls: ['todo/styles/todo.css']
 })
-export class TodoCmp implements OnInit {
-  title: string = "ng2do";
-  todos: Todo[] = [];
-  todoForm: Todo;
+export class TodoCmp extends AbstractComponent implements OnInit {
 
-  constructor(private _todoService: TodoService) {
+
+  constructor(protected _TodoService: TodoService) {
+    super(_TodoService);
     this.todoForm = {
       "todoMessage": ""
     };
   }
 
-  ngOnInit() {
-    this._getAll();
-  }
 
-  private _getAll():void {
-    this._todoService
-        .getAll()
-        .subscribe((todos) => {
-          this.todos = todos;
-        });
-  }
 
-  add(message:string):void {
-    this._todoService
-        .add(message)
-        .subscribe((m) => {
-          this.todos.push(m);
-          this.todoForm.todoMessage = "";
-        });
-  }
-
-  remove(id:string):void {
-    this._todoService
-      .remove(id)
-      .subscribe(() => {
-        this.todos.forEach((t, i) => {
-          if (t._id === id)
-            return this.todos.splice(i, 1);
-        });
-      })
-  }
 }

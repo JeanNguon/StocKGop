@@ -17,13 +17,13 @@ var __metadata = (this && this.__metadata) || function (k, v) {
  * Created by imiedev on 15/12/16.
  */
 var core_1 = require("@angular/core");
-var todo_service_1 = require("../services/todo-service");
 var Abstract_cpm_1 = require("./Abstract-cpm");
+var menu_service_1 = require("../services/menu-service");
 var MenuCmp = (function (_super) {
     __extends(MenuCmp, _super);
-    function MenuCmp(_TodoService) {
-        var _this = _super.call(this, _TodoService) || this;
-        _this._TodoService = _TodoService;
+    function MenuCmp(menuService) {
+        var _this = _super.call(this, menuService) || this;
+        _this.menuService = menuService;
         _this.todoForm = {
             "todoMessage": ""
         };
@@ -37,6 +37,6 @@ MenuCmp = __decorate([
         templateUrl: 'todo/templates/menu.html',
         styleUrls: ['todo/styles/menu.css']
     }),
-    __metadata("design:paramtypes", [todo_service_1.TodoService])
+    __metadata("design:paramtypes", [menu_service_1.MenuService])
 ], MenuCmp);
 exports.MenuCmp = MenuCmp;

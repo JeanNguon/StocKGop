@@ -3,45 +3,20 @@ import {
   Injectable
 } from '@angular/core';
 
-import {
-  Observable
-} from 'rxjs/Observable';
 
 import {
-  Http,
-  Headers
+  Http
 } from '@angular/http';
 
 import 'rxjs/add/operator/map';
+import {AbstractService} from "./abstractService";
 
 @Injectable()
-export class TodoService {
-  static ENDPOINT: string = '/api/todos/:id';
+export class TodoService extends AbstractService{
+  static route: string = '/api/todos/:id';
 
-  constructor(@Inject(Http) private _http: Http) {
-
+  constructor(@Inject(Http) protected _http: Http) {
+    super(_http, TodoService.route);
   }
 
-  getAll():Observable<any> {
-    return this._http
-               .get(TodoService.ENDPOINT.replace(':id', ''))
-               .map((r) => r.json());
-  }
-
-  add(message:string):Observable<any> {
-    let _messageStringified = JSON.stringify({todoMessage: message});
-
-    let headers = new Headers();
-
-    headers.append('Content-Type', 'application/json');
-
-    return this._http
-               .post(TodoService.ENDPOINT.replace(':id', ''), _messageStringified, {headers})
-               .map((r) => r.json());
-  }
-
-  remove(id: string):Observable<any> {
-    return this._http
-               .delete(TodoService.ENDPOINT.replace(':id', id));
-  }
 }

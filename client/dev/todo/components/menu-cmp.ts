@@ -11,6 +11,7 @@ import {
   TodoService
 } from '../services/todo-service';
 import {AbstractComponent} from "./Abstract-cpm";
+import {MenuService} from "../services/menu-service";
 
 type Todo = {
   todoMessage: string;
@@ -25,8 +26,8 @@ type Todo = {
 export class MenuCmp extends AbstractComponent implements OnInit {
 
 
-  constructor(protected _TodoService: TodoService) {
-    super(_TodoService);
+  constructor(protected menuService: MenuService) {
+    super(menuService);
     this.todoForm = {
       "todoMessage": ""
     };

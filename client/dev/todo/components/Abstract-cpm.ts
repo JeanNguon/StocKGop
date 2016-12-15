@@ -7,33 +7,24 @@ import {
   OnInit
 } from '@angular/core';
 
-import {
-  Validators,
-  FormBuilder,
-  FormGroup,
-  FormControl
-} from '@angular/forms';
+
 
 import {
-  TodoService
-} from '../services/todo-service';
+  AbstractService
+} from '../services/abstractService';
 
 type Todo = {
   todoMessage: string;
   _id?: string;
 }
 
-@Component({
-  selector: 'todo-cmp',
-  templateUrl: 'todo/templates/todo.html',
-  styleUrls: ['todo/styles/todo.css']
-})
+
 export class AbstractComponent implements OnInit {
   title: string = "StocKGop";
   todos: Todo[] = [];
   todoForm: Todo;
 
-  constructor(protected _TodoService: TodoService) {
+  constructor(protected abstractService: AbstractService) {
     this.todoForm = {
       "todoMessage": ""
     };
@@ -44,7 +35,7 @@ export class AbstractComponent implements OnInit {
   }
 
   private _getAll():void {
-    this._TodoService
+    this.abstractService
       .getAll()
       .subscribe((todos) => {
         this.todos = todos;
@@ -52,7 +43,7 @@ export class AbstractComponent implements OnInit {
   }
 
   add(message:string):void {
-    this._TodoService
+    this.abstractService
       .add(message)
       .subscribe((m) => {
         this.todos.push(m);
@@ -61,7 +52,7 @@ export class AbstractComponent implements OnInit {
   }
 
   remove(id:string):void {
-    this._TodoService
+    this.abstractService
       .remove(id)
       .subscribe(() => {
         this.todos.forEach((t, i) => {
@@ -72,7 +63,7 @@ export class AbstractComponent implements OnInit {
   }
 
   detail(id: string): void{
-    this._TodoService
+    this.abstractService
       .getAll()
   }
 }

@@ -1,7 +1,7 @@
 import * as express from 'express';
 import TodoDAO from '../dao/todo-dao';
 
-export class TodoController {
+export class TodoController{
   static getAll(req: express.Request, res: express.Response):void {
       TodoDAO
         ['getAll']()

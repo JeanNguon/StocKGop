@@ -1,5 +1,6 @@
 "use strict";
 var todo_controller_1 = require("../controller/todo-controller");
+var menu_controller_1 = require("../controller/menu-controller");
 var TodoRoutes = (function () {
     function TodoRoutes() {
     }
@@ -11,6 +12,12 @@ var TodoRoutes = (function () {
         router
             .route('/api/todos/:id')
             .delete(todo_controller_1.TodoController.deleteTodo);
+        router
+            .route('/api/menu')
+            .get(menu_controller_1.MenuController.getAll);
+        // router
+        //   .route('/api/menu/:id')
+        //   .delete(MenuController.deleteTodo);
     };
     return TodoRoutes;
 }());

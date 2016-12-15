@@ -1,4 +1,9 @@
 "use strict";
+var __extends = (this && this.__extends) || function (d, b) {
+    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+    function __() { this.constructor = d; }
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+};
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -14,30 +19,17 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
 var core_1 = require("@angular/core");
 var http_1 = require("@angular/http");
 require("rxjs/add/operator/map");
-var TodoService = TodoService_1 = (function () {
+var abstractService_1 = require("./abstractService");
+var TodoService = TodoService_1 = (function (_super) {
+    __extends(TodoService, _super);
     function TodoService(_http) {
-        this._http = _http;
+        var _this = _super.call(this, _http, TodoService_1.route) || this;
+        _this._http = _http;
+        return _this;
     }
-    TodoService.prototype.getAll = function () {
-        return this._http
-            .get(TodoService_1.ENDPOINT.replace(':id', ''))
-            .map(function (r) { return r.json(); });
-    };
-    TodoService.prototype.add = function (message) {
-        var _messageStringified = JSON.stringify({ todoMessage: message });
-        var headers = new http_1.Headers();
-        headers.append('Content-Type', 'application/json');
-        return this._http
-            .post(TodoService_1.ENDPOINT.replace(':id', ''), _messageStringified, { headers: headers })
-            .map(function (r) { return r.json(); });
-    };
-    TodoService.prototype.remove = function (id) {
-        return this._http
-            .delete(TodoService_1.ENDPOINT.replace(':id', id));
-    };
     return TodoService;
-}());
-TodoService.ENDPOINT = '/api/todos/:id';
+}(abstractService_1.AbstractService));
+TodoService.route = '/api/todos/:id';
 TodoService = TodoService_1 = __decorate([
     core_1.Injectable(),
     __param(0, core_1.Inject(http_1.Http)),

@@ -4,6 +4,8 @@ import { FormsModule, FormBuilder } from '@angular/forms';
 import { BrowserModule  } from '@angular/platform-browser';
 import { TodoCmp }   from './todo/components/todo-cmp';
 import { TodoService }   from './todo/services/todo-service';
+import {MenuCmp} from "./todo/components/menu-cmp";
+import {MenuService} from "./todo/services/menu-service";
 
 @NgModule({
     imports: [
@@ -13,12 +15,15 @@ import { TodoService }   from './todo/services/todo-service';
     ],
    declarations: [
       TodoCmp,
+      MenuCmp
     ],
     providers: [
       TodoService,
+      MenuService
     ],
     bootstrap: [
       TodoCmp,
+      MenuCmp
     ],
 })
 export class AppModule {}

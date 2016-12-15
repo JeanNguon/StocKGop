@@ -17,7 +17,7 @@ menu_1.default.static('getAll', function () {
         });
     });
 });
-menu_1.default.static('createTodo', function (todo) {
+menu_1.default.static('createMenu', function (todo) {
     return new Promise(function (resolve, reject) {
         if (!_.isObject(todo)) {
             return reject(new TypeError('Todo is not a valid object.'));
@@ -29,7 +29,7 @@ menu_1.default.static('createTodo', function (todo) {
         });
     });
 });
-menu_1.default.static('deleteTodo', function (id) {
+menu_1.default.static('deleteMenu', function (id) {
     return new Promise(function (resolve, reject) {
         if (!_.isString(id)) {
             return reject(new TypeError('Id is not a valid string.'));
@@ -39,6 +39,19 @@ menu_1.default.static('deleteTodo', function (id) {
             .exec(function (err, deleted) {
             err ? reject(err)
                 : resolve();
+        });
+    });
+});
+menu_1.default.static('selectMenu', function (id) {
+    return new Promise(function (resolve, reject) {
+        if (!_.isString(id)) {
+            return reject(new TypeError('Id is not a valid string.'));
+        }
+        Todo
+            .findById(id)
+            .exec(function (err, selected) {
+            err ? reject(err)
+                : resolve(selected);
         });
     });
 });
