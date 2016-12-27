@@ -1,0 +1,50 @@
+
+<form method="POST" action="/user/create" id="userForm">
+  <% if (user) {%>
+  <h1>Formulaire utilisateur</h1>
+  <section>
+    <div>
+      <label for="firstname">
+        Prénom :
+
+      </label>
+      <input type="text" name="firstname" id="firstname" value="<%= user.firstname ? user.firstname : '' %>" placeholder="prénom">
+    </div>
+
+
+    <div>
+      <label for="lastname">
+        Nom :
+      </label>
+      <input type="text" name="lastname" id="lastname" value="<%= user.lastname ? user.lastname : '' %>" placeholder="nom de famille">
+    </div>
+
+    <div>
+      <label for="displayName">
+        Pseudo:
+      </label>
+      <input type="text" name="displayName" id="displayName" value="<%= user.displayName ? user.displayName : '' %>" placeholder="pseudo">
+    </div>
+
+    <div>
+
+      <label for="login">
+        Identifiant:
+      </label>
+      <input type="text" name="login" id="login" value="<%= user.login ? user.login : '' %>" placeholder="identifiant">
+    </div>
+
+    <div>
+      <label for="password">
+        Mot de passe:
+      </label>
+      <input type="password" name="password" id="password" value="<%= user.password ? user.password : '' %>"  placeholder="mot de passe">
+    </div>
+  </section>
+
+  <input type="submit" value="<%= user ? 'Mettre à jour': 'Enregistrer' %>" id="submit">
+  <%}else{%>
+    <div>aucun utilisateur</div>
+  <%}%>
+</form>
+

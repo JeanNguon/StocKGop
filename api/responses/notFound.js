@@ -40,7 +40,7 @@ module.exports = function notFound (data, options) {
     data = undefined;
   }
 
-  // If the user-agent wants JSON, always respond with JSON
+  // If the userView-agent wants JSON, always respond with JSON
   // If views are disabled, revert to json
   if (req.wantsJSON || sails.config.hooks.views === false) {
     return res.jsonx(data);
