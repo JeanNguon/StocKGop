@@ -27,11 +27,10 @@ module.exports.routes = {
   '/': {
     view: 'homepage'
   },
-
   'get /user/create': 'UserController.create',
   'post /user/create': 'UserController.submit',
   'get /user': 'UserController.getAll',
   'get /user/detail/:id' : 'UserController.detail',
   'get /user/update/:id' : 'UserController.update',
-  'post /user/update/:id' : 'UserController.detail',
+  'post /user/update/:id' : 'UserController.update',
 };
