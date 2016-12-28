@@ -1,12 +1,11 @@
 
-<form method="POST" action="/user/create" id="userForm">
+<form method="POST" action="/user/update/<%= user.id %>" id="userForm">
   <% if (user) {%>
   <h1>Formulaire utilisateur</h1>
   <section>
     <div>
       <label for="firstname">
         Prénom :
-
       </label>
       <input type="text" name="firstname" id="firstname" value="<%= user.firstname ? user.firstname : '' %>" placeholder="prénom">
     </div>

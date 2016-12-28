@@ -25,7 +25,7 @@ module.exports = {
       }).exec(function (err, recordedUser) {
           if (!err) {
             sails.log(recordedUser.firstname, "has been recorded")
-            return res.ok();
+            res.redirect('/user');
           } else {
             return res.serverError(err);
           }
@@ -48,6 +48,7 @@ module.exports = {
     sails.log("list of users");
     User.find().exec(function(err, list){
       if(!err){
+        sails.log(list);
         res.view('userView/index', {layout:'layout', list: list});
       }
     })
@@ -55,12 +56,39 @@ module.exports = {
 
   update: function (req, res) {
     sails.log("update userView controller function");
-    User.findOne({id:req.param('id')})
-      .exec(function (err, userFound) {
-        if(!err){
-          res.view('userView/detail/'+req.param('id'), {layout:'layout', user: userFound});
-        }
-      })
+    if (req.method == "POST") {
+      sails.log("post");
+
+      User.find({id: req.param('id')})
+        .exec(function (err, userFound) {
+          if(!err){
+            var newRecorded = userFound.pop();
+
+            newRecorded.id =  req.param('id');
+              newRecorded.firstname =  req.param("firstname");
+            newRecorded.lastname = req.param("lastname");
+              newRecorded.displayName = req.param("displayName");
+              newRecorded.login = req.param("login");
+              newRecorded.password= req.param("password");
+            newRecorded.save(function (err) {
+             if(!err) {
+               sails.log('user has been updated');
+             }
+              return res.redirect('/user');
+            })
+          }else{
+            return res.negotiate(err);
+          }
+        })
+
+    }else {
+      User.findOne({id: req.param('id')})
+        .exec(function (err, userFound) {
+          if (!err) {
+            res.view('userView/update', {layout: 'layout', user: userFound});
+          }
+        })
+    }
   },
 
   delete: function (req, res) {
@@ -68,8 +96,8 @@ module.exports = {
     User.destroy({id:req.param('id')})
       .exec(function (err) {
         if(!err){
-          sails.log('Deleted book with `id: 4`, if it existed.');
-          return res.ok();
+          sails.log('user has been deleted');
+          res.redirect('/user');
         }else{
           return res.negotiate(err);
         }
