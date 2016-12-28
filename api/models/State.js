@@ -12,8 +12,7 @@ module.exports = {
       type: 'integer',
       autoIncrement: true,
       columnName: 'id',
-      primaryKey: true,
-      required: true
+      primaryKey: true
     },
     code: {
       type: 'string',
@@ -22,6 +21,11 @@ module.exports = {
     name: {
       type: 'string',
       columnName: 'name'
+    },
+
+    products:{
+      collection: 'product',
+      via: 'states',
     }
 
   }

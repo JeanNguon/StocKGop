@@ -12,8 +12,7 @@ module.exports = {
       type: 'integer',
       autoIncrement: true,
       columnName: 'id',
-      primaryKey: true,
-      required: true
+      primaryKey: true
     },
     code: {
       type: 'string',

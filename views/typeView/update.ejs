@@ -1,0 +1,29 @@
+
+<form method="POST" action="/type/update/<%= type.id %>" class="form">
+  <h1>Formulaire type</h1>
+  <% if (type) {%>
+  <section>
+    <div>
+      <label for="name">
+        Libellé :
+      </label>
+      <input type="text" name="name" id="typeName" value="<%= type.name ? type.name : '' %>" placeholder="libellé">
+    </div>
+
+
+    <div>
+      <label for="code">
+        Code :
+      </label>
+      <input type="text" name="code" id="type" value="<%= type.descriptionLocation ? product.descriptionLocation : '' %>" placeholder="nom de famille">
+    </div>
+
+  </section>
+
+  <input type="submit" value="<%= type ? 'Mettre à jour': 'Enregistrer' %>" id="submit">
+  <%}else{%>
+  <div>aucun type</div>
+
+  <%}%>
+</form>
+

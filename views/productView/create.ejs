@@ -1,0 +1,28 @@
+
+<form method="POST" action="/product/create" class="form">
+  <h1>Formulaire Produit</h1>
+  <section>
+    <div>
+      <label for="name">
+        Libellé :
+
+      </label>
+      <input type="text" name="name" id="name" placeholder="libellé">
+    </div>
+
+
+    <div>
+      <label for="descriptionLocation">
+        Emplacement :
+      </label>
+      <input type="text" name="descriptionLocation" id="descriptionLocation" placeholder="description de l'emplacement de stockage">
+    </div>
+
+    <%- partial('./../typeView/select.ejs')%>
+
+  </section>
+
+  <input type="submit" value="Enregistrer" id="submit">
+
+</form>
+

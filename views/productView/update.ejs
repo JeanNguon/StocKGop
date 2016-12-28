@@ -1,0 +1,29 @@
+
+<form method="POST" action="/product/update/<%= product.id %>" class="form">
+  <h1>Formulaire Product</h1>
+  <% if (product) {%>
+  <section>
+    <div>
+      <label for="name">
+        Libellé :
+      </label>
+      <input type="text" name="name" id="productName" value="<%= product.name ? product.name : '' %>" placeholder="libellé">
+    </div>
+
+
+    <div>
+      <label for="productDescriptionLocation">
+        Emplacement :
+      </label>
+      <input type="text" name="descriptionLocation" id="productDescriptionLocation" value="<%= product.descriptionLocation ? product.descriptionLocation : '' %>" placeholder="nom de famille">
+    </div>
+
+  </section>
+
+  <input type="submit" value="<%= product ? 'Mettre à jour': 'Enregistrer' %>" id="submit">
+  <%}else{%>
+  <div>aucun utilisateur</div>
+
+  <%}%>
+</form>
+

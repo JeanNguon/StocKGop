@@ -1,0 +1,46 @@
+<section  class="control-group list">
+  <a href="/product/create" class="glyphicon glyphicon-plus btn_add" title="ajouter un produit"></a>
+  <%if (list && list.length > 0){%>
+  <table>
+    <thead>
+    <tr>
+      <th>
+        Libellé
+      </th>
+      <th>
+        Emplacement
+      </th>
+      <th></th>
+    </tr>
+    </thead>
+    <tbody>
+
+
+    <% _.each(list, function(product) {%>
+
+    <tr>
+
+      <td><%=product.name%></td>
+      <td><%=product.descriptionLocation%></td>
+      <td>
+        <a href="/product/detail/<%=+product.id%>" class="glyphicon glyphicon-eye-open" title="détail du produit">
+
+        </a>
+      </td>
+    </tr>
+
+    <% }) %>
+
+    </tbody>
+  </table>
+
+  <% }else{ %>
+
+  <article>
+    <p>Aucun produit</p>
+
+  </article>
+   <%}%>
+
+
+</section>

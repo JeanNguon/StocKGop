@@ -1,4 +1,4 @@
-<section id="user_list" class="control-group">
+<section class="list" class="control-group">
   <a href="/user/create" class="glyphicon glyphicon-plus btn_add" title="ajouter un utilisateur"></a>
   <%if (list && list.length > 0){%>
   <table>
@@ -31,7 +31,7 @@
       <td><%=user.displayName%></td>
       <td><%=user.login%></td>
       <td>
-        <a href="http://localhost:1337/user/detail/<%=+user.id%>" class="glyphicon glyphicon-eye-open" title="détail de l'utilisateur">
+        <a href="/user/detail/<%=+user.id%>" class="glyphicon glyphicon-eye-open" title="détail de l'utilisateur">
 
         </a>
       </td>

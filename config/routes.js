@@ -27,10 +27,35 @@ module.exports.routes = {
   '/': {
     view: 'homepage'
   },
+
+  ////////////////////////user routes////////////////////
   'get /user/create': 'UserController.create',
   'post /user/create': 'UserController.submit',
   'get /user': 'UserController.getAll',
   'get /user/detail/:id' : 'UserController.detail',
   'get /user/update/:id' : 'UserController.update',
   'post /user/update/:id' : 'UserController.update',
+  ////////////////////////user routes////////////////////
+
+
+  ////////////////////////product routes////////////////////
+  'get /product/create': 'ProductController.create',
+  'post /product/create': 'ProductController.submit',
+  'get /product/create/type': 'ProductController.getAllType',
+  'get /product': 'ProductController.getAll',
+  'get /product/detail/:id' : 'ProductController.detail',
+  'get /product/update/:id' : 'ProductController.update',
+  'post /product/update/:id' : 'ProductController.update',
+  ////////////////////////product routes////////////////////
+
+
+  ////////////////////////type routes////////////////////
+  'get /type/create': 'TypeController.create',
+  'post /type/create': 'TypeController.submit',
+  'get /type': 'TypeController.getAll',
+  'get /type/detail/:id' : 'TypeController.detail',
+  'get /type/update/:id' : 'TypeController.update',
+  'post /type/update/:id' : 'TypeController.update',
+  ////////////////////////product routes////////////////////
+
 };

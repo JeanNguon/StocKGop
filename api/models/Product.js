@@ -13,7 +13,6 @@ module.exports = {
       autoIncrement: true,
       columnName: 'id',
       primaryKey: true,
-      required: true
     },
     name: {
       type: 'string',
@@ -23,6 +22,11 @@ module.exports = {
       type: 'string',
       columnName: 'description_location'
     },
+    //foreign key
+    states:{
+     collection: 'state',
+      via: 'products',
+    }
 
   }
 };

@@ -36,7 +36,12 @@ module.exports = {
       type: 'string',
       columnName: 'password',
       required: true
-    }
+    },
+    //
+    // products: {
+    //   collection : 'products',
+    //   via: 'managers'
+    // }
   }
 };
 

@@ -13,7 +13,6 @@ module.exports = {
       autoIncrement: true,
       columnName: 'id',
       primaryKey: true,
-      required: true
     },
     name: {
       type: 'integer',
