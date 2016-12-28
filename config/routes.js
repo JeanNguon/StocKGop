@@ -32,6 +32,6 @@ module.exports.routes = {
   'post /user/create': 'UserController.submit',
   'get /user': 'UserController.getAll',
   'get /user/detail/:id' : 'UserController.detail',
-  'get /user/update/:id' : 'UserController.update'
-
+  'get /user/update/:id' : 'UserController.update',
+  'post /user/update/:id' : 'UserController.detail',
 };

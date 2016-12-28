@@ -1,4 +1,5 @@
 <section class="control-group">
+  <%if (list.count > 0){%>
   <table>
     <thead>
     <tr>
@@ -39,5 +40,13 @@
 
     </tbody>
   </table>
+
+  <% }else{ %>
+
+  <article>
+    <p>Aucun utilisateur</p>
+    <a href="/user/create" class="glyphicon glyphicon-plus"></a>
+  </article>
+   <%}%>
 
 </section>

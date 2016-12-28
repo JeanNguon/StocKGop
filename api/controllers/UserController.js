@@ -25,6 +25,7 @@ module.exports = {
       }).exec(function (err, recordedUser) {
           if (!err) {
             sails.log(recordedUser.firstname, "has been recorded")
+            return res.ok();
           } else {
             return res.serverError(err);
           }
@@ -57,7 +58,20 @@ module.exports = {
     User.findOne({id:req.param('id')})
       .exec(function (err, userFound) {
         if(!err){
-          res.view('userView/update', {layout:'layout', user: userFound});
+          res.view('userView/detail/'+req.param('id'), {layout:'layout', user: userFound});
+        }
+      })
+  },
+
+  delete: function (req, res) {
+    sails.log("update userView controller function");
+    User.destroy({id:req.param('id')})
+      .exec(function (err) {
+        if(!err){
+          sails.log('Deleted book with `id: 4`, if it existed.');
+          return res.ok();
+        }else{
+          return res.negotiate(err);
         }
       })
   },
