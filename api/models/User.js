@@ -13,7 +13,6 @@ module.exports = {
       autoIncrement: true,
       columnName: 'id',
       primaryKey: true,
-      required: true
     },
     firstname: {
       type: 'string',
@@ -35,7 +34,7 @@ module.exports = {
     },
     password:{
       type: 'string',
-      columnName: 'login',
+      columnName: 'password',
       required: true
     }
   }

@@ -1084,7 +1084,7 @@ message:4,upgrade:5,noop:6},s=i(r),t={type:"error",data:"parser error"},u=a("blo
     /**
      * Simulate a GET request to sails
      * e.g.
-     *    `socket.get('/user/3', Stats.populate)`
+     *    `socket.get('/userView/3', Stats.populate)`
      *
      * @api public
      * @param {String} url    ::    destination URL
@@ -1198,7 +1198,7 @@ message:4,upgrade:5,noop:6},s=i(r),t={type:"error",data:"parser error"},u=a("blo
      * e.g.
      * ```
      * socket.request({
-     *   url:'/user',
+     *   url:'/userView',
      *   params: {},
      *   method: 'POST',
      *   headers: {}
@@ -1458,7 +1458,7 @@ message:4,upgrade:5,noop:6},s=i(r),t={type:"error",data:"parser error"},u=a("blo
     //
     // This socket is not connected yet, and has not even _started_ connecting.
     //
-    // But in the mean time, this eager socket will be queue events bound by the user
+    // But in the mean time, this eager socket will be queue events bound by the userView
     // before the first cycle of the event loop (using `.on()`), which will later
     // be rebound on the raw underlying socket.
 

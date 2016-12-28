@@ -1,0 +1,10 @@
+<div>
+  <%if (user != undefined || user != null ) { %>
+  <h1><%= user.name %>'s first view</h1>
+  <h2>My corndog collection:</h2>
+  <ul>
+    <% _.each(corndogs, function (corndog) { %>
+    <li><%= corndog.name %></li>
+    <% }) }%>
+  </ul>
+</div>
