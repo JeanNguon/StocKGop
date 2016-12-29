@@ -23,9 +23,9 @@ module.exports = {
       columnName: 'description_location'
     },
     //foreign key
-    states:{
-     collection: 'state',
-      via: 'products',
+    type:{
+     collection: 'type',
+      via:'owner'
     }
 
   }

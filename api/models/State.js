@@ -23,11 +23,6 @@ module.exports = {
       columnName: 'name'
     },
 
-    products:{
-      collection: 'product',
-      via: 'states',
-    }
-
   }
 };
 

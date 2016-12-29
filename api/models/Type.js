@@ -21,8 +21,11 @@ module.exports = {
     name: {
       type: 'string',
       columnName: 'name'
-    }
+    },
 
+    owner:{
+      model:'product'
+    }
   }
 };
 
