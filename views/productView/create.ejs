@@ -3,42 +3,42 @@
   <h1>Formulaire Produit</h1>
   <section>
     <article>
-    <h2>Champs Produit</h2>
-    <div>
-      <label for="name">
-        Libellé :
+      <h2>Champs Produit</h2>
+      <div>
+        <label for="name">
+          Libellé :
 
-      </label>
-      <input type="text" name="name" id="name" placeholder="libellé">
-    </div>
+        </label>
+        <input type="text" name="name" id="name" placeholder="libellé">
+      </div>
 
 
-    <div>
-      <label for="descriptionLocation">
-        Emplacement :
-      </label>
-      <input type="text" name="descriptionLocation" id="descriptionLocation" placeholder="description de l'emplacement de stockage">
-    </div>
+      <div>
+        <label for="descriptionLocation">
+          Emplacement :
+        </label>
+        <textarea type="text" name="descriptionLocation" id="descriptionLocation" placeholder="description de l'emplacement de stockage"></textarea>
+      </div>
     </article>
 
 
 
-  <article>
-    <% if (types && types.length >0){%>
+    <article>
+      <% if (types && types.length >0){%>
 
-    <div class="form-group">
-      <label for="type">Type de produit:</label>
-      <select class="form-control" id="type" name="type">
+      <div class="form-group">
+        <label for="type">Type de produit:</label>
+        <select class="form-control" id="type" name="type">
 
-        <% types.forEach(function(type) { %>
-        <% type.forEach(function(value) { %>
-        <option value="<%= value.code%>" ><%= value.name%></option>
-        <% }); %>
-        <% }); %>
-      </select>
-    </div>
-    <%}%>
-  </article>
+          <% types.forEach(function(type) { %>
+          <% type.forEach(function(value) { %>
+          <option value="<%= value.id%>" ><%= value.name%></option>
+          <% }); %>
+          <% }); %>
+        </select>
+      </div>
+      <%}%>
+    </article>
 
 
     <article>
