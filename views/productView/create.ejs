@@ -28,7 +28,10 @@
 
       <div class="form-group">
         <label for="type">Type de produit:</label>
-        <select class="form-control" id="type" name="type">
+
+
+
+        <select class="form-control" id="type" name="type" multiple>
 
           <% types.forEach(function(type) { %>
           <% type.forEach(function(value) { %>
@@ -38,12 +41,32 @@
         </select>
       </div>
       <%}%>
+
+      <label for="addNewProductTypeBtn">Créer nouveau type de produit</label>
+      <input id="addNewProductTypeBtn" type="checkbox"  name="addNewProductTypeBtn" class="glyphicon glyphicon-plus"/>
+      <article id="typeProductArticle" hidden>
+        <h2>Champs Type</h2>
+        <div>
+          <label for="name">
+            Nom :
+
+          </label>
+          <input type="text" name="name" id="typeName" placeholder="libellé">
+        </div>
+
+
+        <div>
+          <label for="code">
+            Code :
+          </label>
+          <input type="text" name="code" id="code" placeholder="code">
+        </div>
+      </article>
     </article>
 
 
     <article>
       <% if (states && states.length >0){%>
-
       <div class="form-group">
         <label for="type">Etat de produit:</label>
         <select class="form-control" id="type" name="type">

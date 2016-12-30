@@ -23,8 +23,14 @@ module.exports = {
       columnName: 'name'
     },
 
-    owner:{
-      model:'product'
+    parent:{
+      model:'type',
+      columnName: 'parent'
+    },
+
+    types:{
+      collection:'product',
+      via: 'products'
     }
   }
 };

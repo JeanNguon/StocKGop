@@ -22,6 +22,9 @@ module.exports = {
       });
   },
 
+  addNewType: function (req, res){
+  },
+
   submit: function (req, res) {
     sails.log("methode POST Product")
     if (req.method == "POST") {
@@ -29,14 +32,28 @@ module.exports = {
         name: req.param("name"),
         descriptionLocation: req.param("descriptionLocation"),
 
+
       }).exec(function (err, recordedProduct) {
           if (!err) {
-            sails.log(recordedProduct.name, "has been recorded")
+            sails.log(recordedProduct.name, "has been recorded");
+
+            sails.log("allParams : "+req.allParams());
+       /*     if(req.param('addNewProductTypeBtn') == true) {
+              recordedProduct.types.add({
+                name: req.param("name"),
+                code: req.param("code"),
+              })
+              recordedProduct.save(function (mistake) {
+                if (!mistake) {
+                  sails.log(recordedProduct.name, "has been recorded")
+
+                }
+              })
+            }*/
             res.redirect('/product');
           } else {
             return res.serverError(err);
           }
-
         }
       )
     }
@@ -45,7 +62,7 @@ module.exports = {
   detail: function (req, res) {
     sails.log("detail productView controller function");
     Product.findOne({id:req.param('id')})
-      .populate('type')
+    /*  .populate('type')*/
       .exec(function (err, productFound) {
         if(!err){
           res.view('productView/detail', {layout:'layout', product: productFound});
@@ -56,7 +73,7 @@ module.exports = {
   getAll: function(req, res){
     sails.log("list of product");
     Product.find()
-      .populate('type')
+      // .populate('type')
       .exec(function(err, list){
         if(!err){
           sails.log(list);
@@ -71,11 +88,10 @@ module.exports = {
       sails.log("post");
 
       Product.find({id: req.param('id')})
-        .populate('type')
+       // .populate('type')
         .exec(function (err, productFound) {
           if(!err){
             var newRecorded = productFound.pop();
-
             newRecorded.id =  req.param('id');
             newRecorded.name =  req.param("name");
             newRecorded.descriptionLocation = req.param("descriptionLocation");

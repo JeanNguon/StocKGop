@@ -29,6 +29,8 @@ module.exports.routes = {
   },
 
   ////////////////////////user routes////////////////////
+  'get /login' : 'UserController.login',
+  'post /login' : 'UserController.connection',
   'get /user/create': 'UserController.create',
   'post /user/create': 'UserController.submit',
   'get /user': 'UserController.getAll',

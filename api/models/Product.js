@@ -23,9 +23,10 @@ module.exports = {
       columnName: 'description_location'
     },
     //foreign key
-    type:{
+    products:{
      collection: 'type',
-      via:'owner'
+      via:'types',
+      dominante: true
     }
 
   }

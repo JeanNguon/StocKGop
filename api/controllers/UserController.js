@@ -7,6 +7,39 @@
 
 module.exports = {
 
+
+  login: function(req, res){
+    res.view('login/logIn', {layout : 'layout', error: ''})
+  },
+
+  connection: function(req, res){
+    sails.log("try connection");
+    var error = {};
+    var login = req.param('login');
+    var password = req.param('password');
+    //TODO : récupérer les utilisateurs gop
+    User.findOne({login:login, password: password})
+      .exec(function (err, user) {
+        if(!err){
+          if(user != undefined || user != null) {
+            sails.log("connection success")
+            req.session.me = user.id;
+            res.redirect('/');
+          }else {
+            sails.log("connection fail");
+            error.description = "Mauvais login/mot de passe";
+            res.view('login/logIn', {layout: 'layout', error: error});
+          }
+        }
+        else{
+
+        }
+      })
+  },
+  //TODO: Faire une Promises remplacer le .exec par .then
+  //var reqAJAX : function(){récupérer liste des utilisateurs GOP.}
+  //Promise.all([])
+
   create: function (req, res) {
     sails.log("create userView controller function");
     res.view('userView/create', {layout: 'layout'});
